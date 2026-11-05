@@ -7,3 +7,18 @@
 
 .arrow{width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0}.drawing-caption .arrow{width:32px;height:32px}.service-body .arrow{width:14px;height:14px}
 .technical .arrow{padding:0;max-height:none}@media(max-width:700px){.header-cta{display:none}}
+
+/* Motion stays decorative: all content is visible without JavaScript. */
+.scroll-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;z-index:99;pointer-events:none}
+.header{position:relative;z-index:30}
+.header nav a{position:relative;padding:6px 0}
+.header nav a::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.header nav a:hover::after,.header nav a:focus-visible::after{transform:scaleX(1)}
+.button .arrow,.header-cta .arrow,.text-link .arrow,.service-body .arrow,address .arrow{transition:transform .25s ease}
+a:hover>.arrow,a:hover>span>.arrow,a:hover>span>b>.arrow{transform:translate(3px,-3px)}
+summary{transition:background-color .25s ease}summary:hover{background-color:#e9ece580}
+.floating-whatsapp{transition:transform .25s ease,background .25s ease,box-shadow .25s ease}
+.floating-whatsapp:hover{transform:translateY(-4px);box-shadow:0 9px 26px #071d2440}
+@media(min-width:701px){.header{position:sticky;top:0;box-shadow:0 3px 20px #102c3a08}html{scroll-padding-top:120px}}
+@media(prefers-reduced-motion:reduce){.scroll-progress{display:none}a:hover>.arrow,a:hover>span>.arrow,a:hover>span>b>.arrow,.floating-whatsapp:hover,.button:hover{transform:none}}
+@media(prefers-reduced-motion:no-preference){details[open] .service-body{animation:service-open .3s ease-out}@keyframes service-open{from{opacity:.25;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}}
