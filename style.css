@@ -22,3 +22,20 @@ summary{transition:background-color .25s ease}summary:hover{background-color:#e9
 @media(min-width:701px){.header{position:sticky;top:0;box-shadow:0 3px 20px #102c3a08}html{scroll-padding-top:120px}}
 @media(prefers-reduced-motion:reduce){.scroll-progress{display:none}a:hover>.arrow,a:hover>span>.arrow,a:hover>span>b>.arrow,.floating-whatsapp:hover,.button:hover{transform:none}}
 @media(prefers-reduced-motion:no-preference){details[open] .service-body{animation:service-open .3s ease-out}@keyframes service-open{from{opacity:.25;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}}
+
+/* Editorial imagery, with reserved space to keep scroll animations stable. */
+.hero-media{position:relative;margin:0;align-self:center;border:1px solid #3b525d;background:var(--navy-dark)}
+.photo-label{display:flex;justify-content:space-between;gap:12px;padding:15px 18px;color:#c8d6d9;font:9px monospace;letter-spacing:1px}
+.photo-window{overflow:hidden;isolation:isolate}
+.hero-media .photo-window{height:560px}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block}
+.hero-media>figcaption{position:absolute;bottom:24px;right:-1px;background:var(--paper);color:var(--navy);padding:19px 25px;border-left:3px solid var(--orange);max-width:88%}
+.photo-index{font:9px monospace;letter-spacing:1px;color:#9b4d16}
+.hero-media figcaption p{font-size:14px;line-height:1.6;margin:8px 0 0}
+.approach-media{margin:32px 0 0;border-top:3px solid var(--orange)}
+.approach-media .photo-window{aspect-ratio:3/2}
+.approach-media img{width:100%;height:100%;object-fit:cover;display:block}
+.approach-media figcaption{display:flex;justify-content:space-between;gap:15px;padding-top:12px;color:var(--muted);font:9px monospace;letter-spacing:.3px}
+.steps{align-self:center}
+@media(max-width:1000px){.hero-media .photo-window{height:485px}.photo-label{font-size:7px;letter-spacing:.5px;padding:13px}.hero-media>figcaption{padding:14px 18px}.hero-media figcaption p{font-size:12px}}
+@media(max-width:700px){.hero-media{width:100%;max-width:500px;justify-self:center}.hero-media .photo-window{height:auto;aspect-ratio:4/4.3}.hero-media>figcaption{bottom:20px}.photo-label{font-size:8px}.approach-media{margin-top:26px}.approach-media figcaption{font-size:8px}.hero-media img{object-position:center}}

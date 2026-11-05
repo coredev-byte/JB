@@ -17,16 +17,14 @@ if (window.gsap && window.ScrollTrigger) {
       y: 16, opacity: 0, stagger: 0.08
     }, '-=0.35');
 
-    const paths = gsap.utils.toArray('.technical > svg > g[stroke="#f58b35"] path');
-    const drawing = gsap.timeline({ scrollTrigger: { trigger: '.technical', start: 'top 90%', once: true } });
-    paths.forEach((path, index) => {
-      const length = path.getTotalLength();
-      drawing.fromTo(path, { strokeDasharray: length, strokeDashoffset: length }, {
-        strokeDashoffset: 0, duration: 1.3, ease: 'power2.inOut',
-        clearProps: 'strokeDasharray,strokeDashoffset'
-      }, index * 0.15);
+    gsap.fromTo('.hero-media', { y: 24, opacity: 0 }, {
+      y: 0, opacity: 1, duration: 0.9, ease: 'power2.out', clearProps: 'transform,opacity',
+      scrollTrigger: { trigger: '.hero-media', start: 'top 95%', once: true }
     });
-    drawing.from('.drawing-caption', { y: 15, opacity: 0, duration: 0.6, clearProps: 'transform,opacity' }, 0.6);
+    gsap.fromTo('.hero-media img', { scale: 1.045 }, {
+      scale: 1, duration: 1.5, ease: 'power2.out', clearProps: 'transform',
+      scrollTrigger: { trigger: '.hero-media', start: 'top 95%', once: true }
+    });
 
     // Animate only when entering the viewport; no off-screen content is hidden.
     gsap.utils.toArray('.section-heading, .service-list > details, .approach-title, .steps article, .contact > div, .contact address a').forEach(element => {
